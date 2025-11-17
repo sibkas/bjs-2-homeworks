@@ -18,25 +18,28 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  let p = Number(percent);
-  let c = Number(contribution);
-  let a = Number(amount);
-  let n = Number(countMonths);
 
-  if ([p, c, a, n].some(v => isNaN(v) || v < 0)) return false;
+  percent = Number(percent);
+  contribution = Number(contribution);
+  amount = Number(amount);
+  countMonths = Number(countMonths);
 
-  let monthlyRate = p / 100 / 12;
-  let creditBody = a - c;
+  if (
+    isNaN(percent) ||
+    isNaN(contribution) ||
+    isNaN(amount) ||
+    isNaN(countMonths)
+  ) {
+    return false;
+  }
+
+  let monthlyRate = percent / 100 / 12;
+  let creditBody = amount - contribution;
 
   if (creditBody <= 0) return 0;
 
-  let payment;
-  if (monthlyRate === 0) {
-    payment = creditBody / n; // при 0% процентах просто равные платежи
-  } else {
-    payment = creditBody * (monthlyRate + (monthlyRate / (Math.pow(1 + monthlyRate, n) - 1)));
-  }
-  let total = payment * n;
+  let payment = creditBody * (monthlyRate + (monthlyRate / ((1 + monthlyRate) ** countMonths - 1)));
+  let total = payment * countMonths;
 
   return Number(total.toFixed(2));
 }
