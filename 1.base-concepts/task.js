@@ -23,7 +23,7 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 	let a = Number(amount);
 	let n = Number(countMonths);
 
-	if (isNaN(p)) || isNaN(c) || isNaN(a) || isNaN(n)) {
+	if (isNaN(p) || isNaN(c) || isNaN(a) || isNaN(n)) {
 	return false;
 }
 
