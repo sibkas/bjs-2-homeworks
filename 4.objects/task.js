@@ -12,21 +12,15 @@ Student.prototype.setSubject = function(subjectName) {
 
 
 // Добавление оценок
-Student.prototype.addMarks = function(...marks) {
-  if (!this.marks) {
-    // студент исключён, marks удалены
-    return;
-  }
-  this.marks.push(...marks);
+Student.prototype.addMarks = function(...marksToAdd) {
+  if (!this.marks) return;
+  this.marks.push(...marksToAdd);
 };
 
 // Получение среднего балла
 Student.prototype.getAverage = function() {
-  if (!this.marks || this.marks.length === 0) {
-    return 0;
-  }
-  const sum = this.marks.reduce((acc, mark) => acc + mark, 0);
-  return sum / this.marks.length;
+  if (!this.marks || this.marks.length === 0) return 0;
+  return this.marks.reduce((acc, mark) => acc + mark, 0) / this.marks.length;
 };
 
 // Исключение студента
