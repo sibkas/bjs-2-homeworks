@@ -5,17 +5,11 @@ function Student(name, gender, age) {
   this.marks = [];
 }
 
-// Создание студентов
-const student1 = new Student("Алиса", "Ж", 20);
-const student2 = new Student("Борис", "М", 21);
-
 // Установка предмета
 Student.prototype.setSubject = function(subjectName) {
   this.subject = subjectName;
 };
 
-// Установка предмета студенту
-student1.setSubject("Математика");
 
 // Добавление оценок
 Student.prototype.addMarks = function(...marks) {
