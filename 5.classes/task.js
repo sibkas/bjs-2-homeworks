@@ -5,7 +5,7 @@ class PrintEditionItem {
     this.releaseDate = releaseDate;
     this.pagesCount = pagesCount;
 
-    this.state = 100;
+    this._state = 100;
     this.type = null;
   }
 
@@ -35,7 +35,7 @@ class Magazine extends PrintEditionItem {
   }
 }
 
-class book extends PrintEditionItem {
+class Book extends PrintEditionItem {
   constructor(author, name, releaseDate, pagesCount) {
     super(name, releaseDate, pagesCount);
     this.type = "book";
@@ -202,3 +202,4 @@ console.log(`Средний балл по биологии: ${student.getAverage
 
 console.log(`Общий средний балл: ${student.getAverage()}`); 
 // Ожидаемый результат: 4.75
+
