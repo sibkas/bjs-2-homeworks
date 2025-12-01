@@ -43,19 +43,19 @@ class Book extends PrintEditionItem {
   }
 }
 
-class NovelBook extends book {
+class NovelBook extends Book {
   constructor(author, name, releaseDate, pagesCount) {
     super(author, name, releaseDate, pagesCount);
     this.type = "novel";
   }
 }
-class FantasticBook extends book {
+class FantasticBook extends Book {
   constructor(author, name, releaseDate, pagesCount) {
     super(author, name, releaseDate, pagesCount);
     this.type = "fantastic";
   }
 }
-class DetectiveBook extends book {
+class DetectiveBook extends Book {
   constructor(author, name, releaseDate, pagesCount) {
     super(author, name, releaseDate, pagesCount);
     this.type = "detective";
@@ -202,4 +202,5 @@ console.log(`Средний балл по биологии: ${student.getAverage
 
 console.log(`Общий средний балл: ${student.getAverage()}`); 
 // Ожидаемый результат: 4.75
+
 
