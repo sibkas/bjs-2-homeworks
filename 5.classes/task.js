@@ -92,66 +92,6 @@ class Library {
     return null;
   }
 }
-const library = new Library("Библиотека имени Ленина");
-library.addBook(
-  new FantasticBook(
-    "Аркадий и Борис Стругацкие",
-    "Пикник на обочине",
-    1972,
-    256
-  )
-);
-library.addBook(
-  new DetectiveBook(
-    "Артур Конан Дойл",
-    "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе",
-    2019,
-    1008
-  ));
-
-library.addBook(
-  new FantasticBook(
-    "Аркадий и Борис Стругацкие",
-    "Пикник на обочине",
-    1972,
-    168
-  ));
-library.addBook(new NovelBook(
-  "Герберт Уэллс",
-  "Машина времени",
-  1895,
-  138
-));
-
-library.addBook(new Magazine(
-  "Мурзилка",
-  1924,
-  60
-));
-
-library.addBook(new Magazine(
-  "Военный журнал",
-  1919,
-  100
-));
-
-console.log(`Книг в библиотеке: ${library.books.length}`);
-
-const book1919 = library.findBookBy("releaseDate", 1919);
-console.log(`Найдена книга 1919 года: ${book1919 ? book1919.name : 'Не найдена'}`);
-
-const giveBook = library.giveBookByName("Пикник на обочине");
-console.log(`Выдана книга: ${giveBook ? giveBook.name : 'Не найдена'}`);
-
-console.log(`Книг в библиотеке после выдачи: ${library.books.length}`);
-
-giveBook.state = 15;
-console.log(`Состояние выданной книги: ${giveBook.state}`);
-giveBook.fix();
-console.log(`Состояние выданной книги после ремонта: ${giveBook.state}`);
-
-library.addBook(giveBook);
-console.log(`Книг в библиотеке после возврата: ${library.books.length}`);
 
 //Задание 3
 class Student {
@@ -186,24 +126,8 @@ class Student {
   }
 }
 
-const student = new Student("Олег Никифоров");
-student.addMark(5, "химия");
-student.addMark(5, "химия");
-student.addMark(5, "физика");
-student.addMark(4, "физика");
-student.addMark(6, "физика"); // Оценка не добавится, так как больше 5
-student.getAverageBySubject("физика"); // Средний балл по предмету физика 4.5
-student.getAverageBySubject("биология"); // Вернёт 0, так как по такому предмету нет никаких оценок.
-student.getAverage(); // Средний балл по всем предметам 4.75
-console.log(student);
-console.log(`Средний балл по физике: ${student.getAverageBySubject("физика")}`); 
-// Ожидаемый результат: 4.5
 
-console.log(`Средний балл по биологии: ${student.getAverageBySubject("биология")}`); 
-// Ожидаемый результат: 0
 
-console.log(`Общий средний балл: ${student.getAverage()}`); 
-// Ожидаемый результат: 4.75
 
 
 
