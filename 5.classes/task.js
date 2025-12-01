@@ -49,12 +49,14 @@ class NovelBook extends Book {
     this.type = "novel";
   }
 }
+
 class FantasticBook extends Book {
   constructor(author, name, releaseDate, pagesCount) {
     super(author, name, releaseDate, pagesCount);
     this.type = "fantastic";
   }
 }
+
 class DetectiveBook extends Book {
   constructor(author, name, releaseDate, pagesCount) {
     super(author, name, releaseDate, pagesCount);
@@ -202,5 +204,6 @@ console.log(`Средний балл по биологии: ${student.getAverage
 
 console.log(`Общий средний балл: ${student.getAverage()}`); 
 // Ожидаемый результат: 4.75
+
 
 
