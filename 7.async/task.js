@@ -1,5 +1,5 @@
 //Задание 1
-class alarmClock {
+class AlarmClock {
   constructor() {
     this.alarmCollection = [];
     this.intervalId = null;
@@ -18,7 +18,9 @@ class alarmClock {
     });
   }
   removeClock(time) {
-    this.alarmCollection = this.alarmCollection.filter((item) => item.time !== time);
+    const initialLength = this.alarmCollection.length;
+    this.alarmCollection = this.alarmCollection.filter(item => item.time !== time);
+    return initialLength !== this.alarmCollection.length;
   }
   getCurrentFormattedTime() {
     const now = new Date();
@@ -31,8 +33,10 @@ class alarmClock {
       return;
     }
     this.intervalId = setInterval(() => {
-      this.alarmCollection.forEach((item) => {
-        if (item.time === this.getCurrentFormattedTime() && item.canCall) {
+      const currentTime = this.getCurrentFormattedTime();
+
+      this.alarmCollection.forEach(item => {
+        if (item.time === currentTime && item.canCall) {
           item.canCall = false;
           item.callback();
         }
@@ -48,6 +52,6 @@ class alarmClock {
   }
   clearAlarms() {
     this.stop();
-    this.alarmCollection = [];
+    this.alarmCollection.length = 0;
   }
 }
